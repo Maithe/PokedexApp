@@ -3,16 +3,18 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i7;
+import 'package:mockito/src/dummies.dart' as _i8;
 import 'package:pokedexapp/pokemon/data/datasources/pokemon_api_service.dart'
-    as _i6;
-import 'package:pokedexapp/pokemon/domain/entities/pokemon.dart' as _i5;
+    as _i7;
+import 'package:pokedexapp/pokemon/data/models/pokemon_detail_dto.dart' as _i3;
+import 'package:pokedexapp/pokemon/data/models/pokemon_dto.dart' as _i9;
+import 'package:pokedexapp/pokemon/domain/entities/pokemon.dart' as _i6;
 import 'package:pokedexapp/pokemon/domain/entities/pokemon_detail.dart' as _i2;
 import 'package:pokedexapp/pokemon/domain/repositories/pokemon_repository.dart'
-    as _i3;
+    as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -37,44 +39,55 @@ class _FakePokemonDetail_0 extends _i1.SmartFake implements _i2.PokemonDetail {
         );
 }
 
+class _FakePokemonDetailDTO_1 extends _i1.SmartFake
+    implements _i3.PokemonDetailDTO {
+  _FakePokemonDetailDTO_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [PokemonRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPokemonRepository extends _i1.Mock implements _i3.PokemonRepository {
+class MockPokemonRepository extends _i1.Mock implements _i4.PokemonRepository {
   MockPokemonRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<List<_i5.Pokemon>> fetchPokemons() => (super.noSuchMethod(
+  _i5.Future<List<_i6.Pokemon>> fetchPokemons() => (super.noSuchMethod(
         Invocation.method(
           #fetchPokemons,
           [],
         ),
-        returnValue: _i4.Future<List<_i5.Pokemon>>.value(<_i5.Pokemon>[]),
-      ) as _i4.Future<List<_i5.Pokemon>>);
+        returnValue: _i5.Future<List<_i6.Pokemon>>.value(<_i6.Pokemon>[]),
+      ) as _i5.Future<List<_i6.Pokemon>>);
 
   @override
-  _i4.Future<_i2.PokemonDetail> getPokemonDetail(String? name) =>
+  _i5.Future<_i2.PokemonDetail> getPokemonDetail(String? name) =>
       (super.noSuchMethod(
         Invocation.method(
           #getPokemonDetail,
           [name],
         ),
-        returnValue: _i4.Future<_i2.PokemonDetail>.value(_FakePokemonDetail_0(
+        returnValue: _i5.Future<_i2.PokemonDetail>.value(_FakePokemonDetail_0(
           this,
           Invocation.method(
             #getPokemonDetail,
             [name],
           ),
         )),
-      ) as _i4.Future<_i2.PokemonDetail>);
+      ) as _i5.Future<_i2.PokemonDetail>);
 }
 
 /// A class which mocks [PokemonAPIService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPokemonAPIService extends _i1.Mock implements _i6.PokemonAPIService {
+class MockPokemonAPIService extends _i1.Mock implements _i7.PokemonAPIService {
   MockPokemonAPIService() {
     _i1.throwOnMissingStub(this);
   }
@@ -82,34 +95,35 @@ class MockPokemonAPIService extends _i1.Mock implements _i6.PokemonAPIService {
   @override
   String get baseUrl => (super.noSuchMethod(
         Invocation.getter(#baseUrl),
-        returnValue: _i7.dummyValue<String>(
+        returnValue: _i8.dummyValue<String>(
           this,
           Invocation.getter(#baseUrl),
         ),
       ) as String);
 
   @override
-  _i4.Future<List<_i5.Pokemon>> fetchPokemons() => (super.noSuchMethod(
+  _i5.Future<List<_i9.PokemonDTO>> fetchPokemons() => (super.noSuchMethod(
         Invocation.method(
           #fetchPokemons,
           [],
         ),
-        returnValue: _i4.Future<List<_i5.Pokemon>>.value(<_i5.Pokemon>[]),
-      ) as _i4.Future<List<_i5.Pokemon>>);
+        returnValue: _i5.Future<List<_i9.PokemonDTO>>.value(<_i9.PokemonDTO>[]),
+      ) as _i5.Future<List<_i9.PokemonDTO>>);
 
   @override
-  _i4.Future<_i2.PokemonDetail> fetchPokemonDetail(String? name) =>
+  _i5.Future<_i3.PokemonDetailDTO> fetchPokemonDetail(String? name) =>
       (super.noSuchMethod(
         Invocation.method(
           #fetchPokemonDetail,
           [name],
         ),
-        returnValue: _i4.Future<_i2.PokemonDetail>.value(_FakePokemonDetail_0(
+        returnValue:
+            _i5.Future<_i3.PokemonDetailDTO>.value(_FakePokemonDetailDTO_1(
           this,
           Invocation.method(
             #fetchPokemonDetail,
             [name],
           ),
         )),
-      ) as _i4.Future<_i2.PokemonDetail>);
+      ) as _i5.Future<_i3.PokemonDetailDTO>);
 }

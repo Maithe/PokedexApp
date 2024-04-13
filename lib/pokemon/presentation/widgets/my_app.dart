@@ -7,7 +7,7 @@ import 'package:pokedexapp/services/platform_service.dart';
 class MyApp extends StatefulWidget {
   final PokemonStore store;
 
-  MyApp({super.key, required this.store});
+  const MyApp({super.key, required this.store});
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -51,7 +51,20 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Pokédex - $platformVersion'),
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Pokédex',
+                style: TextStyle(fontSize: 24.0),
+              ),
+              Text(
+                platformVersion,
+                style: const TextStyle(fontSize: 14.0),
+              )
+            ],
+          ),
           backgroundColor: Colors.redAccent,
         ),
         body: PokemonListPage(

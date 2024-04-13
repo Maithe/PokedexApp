@@ -19,11 +19,16 @@ class PokemonDetailPage extends StatelessWidget {
           children: [
             pokemonDetail.imageUrl != null
                 ? Image.network(
-                    pokemonDetail.imageUrl ?? "",
+                    pokemonDetail.imageUrl!,
                     height: 250,
                     fit: BoxFit.contain,
                   )
-                : Container(),
+                : Container(
+                    height: 250,
+                    color: Colors.grey[200],
+                    child: Icon(Icons.image_not_supported,
+                        size: 100, color: Colors.grey[500]),
+                  ),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
@@ -35,12 +40,12 @@ class PokemonDetailPage extends StatelessWidget {
             const Divider(),
             ListTile(
               title: const Text("Height"),
-              subtitle: Text("${pokemonDetail.height}"),
+              subtitle: Text("${pokemonDetail.heightM} m"),
               leading: const Icon(Icons.height),
             ),
             ListTile(
               title: const Text("Weight"),
-              subtitle: Text("${pokemonDetail.weight}"),
+              subtitle: Text("${pokemonDetail.weightKg} kg"),
               leading: const Icon(Icons.monitor_weight),
             ),
             Padding(
@@ -67,7 +72,7 @@ class PokemonDetailPage extends StatelessWidget {
               ),
             ),
             ...pokemonDetail.abilities.map((ability) => ListTile(
-                  title: Text(ability.name),
+                  title: Text(ability),
                   leading: const Icon(Icons.star),
                 )),
           ],

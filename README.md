@@ -4,12 +4,12 @@ This is a Flutter application that retrieves and displays Pokémon information f
 
 #### ⭐ Features:
 
-- ✅ Fetches pokemon data from Pokémon API.
-- ✅ Displays a list of fetched pokemons with basic information.
-- ✅ Navigates to a pokemon detail page upon user selection.
-- ✅ It uses MobX for state management.
-- ✅ Includes unit tests for some classes demonstrating testing practices.
-- ✅ Implemented a search feature to allow users to search pokemons by name.
+- Fetches pokemon data from Pokémon API.
+- Displays a list of fetched pokemons with basic information.
+- Navigates to a pokemon detail page upon user selection.
+- It uses MobX for state management.
+- Includes unit tests for some classes demonstrating testing practices.
+- Implemented a search feature to allow users to search pokemons by name.
 
 #### ⭐ Getting Started:
 

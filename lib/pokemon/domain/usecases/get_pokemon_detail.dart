@@ -1,4 +1,4 @@
-import '../entities/pokemon_detail.dart';
+import 'package:pokedexapp/pokemon/domain/entities/pokemon_detail.dart';
 import '../repositories/pokemon_repository.dart';
 
 class GetPokemonDetail {

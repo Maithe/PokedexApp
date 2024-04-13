@@ -1,8 +1,9 @@
+import 'package:pokedexapp/pokemon/data/models/pokemon_detail_dto.dart';
 import 'package:pokedexapp/pokemon/domain/entities/pokemon_detail.dart';
-
 import '../../domain/entities/pokemon.dart';
 import '../../domain/repositories/pokemon_repository.dart';
 import '../datasources/pokemon_api_service.dart';
+import '../models/pokemon_dto.dart';
 
 class PokemonRepositoryImpl implements PokemonRepository {
   final PokemonAPIService apiService;
@@ -12,7 +13,8 @@ class PokemonRepositoryImpl implements PokemonRepository {
   @override
   Future<List<Pokemon>> fetchPokemons() async {
     try {
-      return await apiService.fetchPokemons();
+      List<PokemonDTO> dtos = await apiService.fetchPokemons();
+      return dtos.map((dto) => Pokemon.fromDTO(dto)).toList();
     } catch (e) {
       throw Exception('Failed to fetch pokemons: ${e.toString()}');
     }
@@ -21,7 +23,8 @@ class PokemonRepositoryImpl implements PokemonRepository {
   @override
   Future<PokemonDetail> getPokemonDetail(String name) async {
     try {
-      return await apiService.fetchPokemonDetail(name);
+      PokemonDetailDTO dto = await apiService.fetchPokemonDetail(name);
+      return PokemonDetail.fromDTO(dto);
     } catch (e) {
       throw Exception('Failed to fetch pokemon detail: ${e.toString()}');
     }

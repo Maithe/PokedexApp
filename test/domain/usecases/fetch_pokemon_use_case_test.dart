@@ -4,6 +4,7 @@ import 'package:pokedexapp/pokemon/domain/entities/pokemon.dart';
 import 'package:pokedexapp/pokemon/domain/entities/pokemon_detail.dart';
 import 'package:pokedexapp/pokemon/domain/usecases/fetch_pokemons.dart';
 import 'package:pokedexapp/pokemon/domain/usecases/get_pokemon_detail.dart';
+import 'package:pokedexapp/pokemon/data/models/pokemon_detail_dto.dart';
 import '../../mocks.mocks.dart';
 
 void main() {
@@ -23,14 +24,14 @@ void main() {
             Pokemon(
                 id: 1,
                 name: 'Bulbasaur',
-                url: 'https://pokeapi.co/api/v2/pokemon/1/')
+                imageUrl:
+                    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png')
           ]);
 
       final result = await useCaseFetchPokemons.execute();
 
       expect(result, isA<List<Pokemon>>());
-      expect(result.first.name, equals('Bulbasaur'),
-          reason: 'The Pokemon name should match the expected value');
+      expect(result.first.name, equals('Bulbasaur'));
     });
 
     test('should handle errors without returning null', () async {
@@ -43,37 +44,33 @@ void main() {
 
   group('GetPokemonDetail Tests', () {
     test('should get Pokemon details from the repository', () async {
-      final pokemonDetail = PokemonDetail(
+      final pokemonDetailDTO = PokemonDetailDTO(
           name: 'Bulbasaur',
-          imageUrl: null,
+          imageUrl: 'https://pokeapi.co/api/v2/pokemon/1/image',
           height: 7,
-          weight: 9,
+          weight: 69,
           types: [
             'Grass',
             'Poison'
           ],
-          stats: [],
           abilities: [
-            AbilityInfo(
-                name: 'overgrow', url: 'https://pokeapi.co/api/v2/ability/65/'),
-            AbilityInfo(
-                name: 'chlorophyll',
-                url: 'https://pokeapi.co/api/v2/ability/34/')
+            AbilityInfoDTO(name: 'chlorophyll', url: ''),
+            AbilityInfoDTO(name: 'overgrow', url: '')
           ]);
 
+      final expectedPokemonDetail = PokemonDetail.fromDTO(pokemonDetailDTO);
+
       when(mockRepository.getPokemonDetail('Bulbasaur'))
-          .thenAnswer((_) async => pokemonDetail);
+          .thenAnswer((_) async => expectedPokemonDetail);
 
       final result = await useCaseGetPokemonDetail.execute('Bulbasaur');
 
       expect(result, isA<PokemonDetail>());
-      // Verificando os valores
       expect(result.name, equals('Bulbasaur'));
-      expect(result.height, equals(7));
-      expect(result.weight, equals(9));
+      expect(result.heightM, equals(0.7));
+      expect(result.weightKg, equals(6.9));
       expect(result.types, containsAll(['Grass', 'Poison']));
-      expect(result.abilities.map((a) => a.name),
-          containsAll(['overgrow', 'chlorophyll']));
+      expect(result.abilities, containsAll(['overgrow', 'chlorophyll']));
 
       verify(mockRepository.getPokemonDetail('Bulbasaur')).called(1);
     });

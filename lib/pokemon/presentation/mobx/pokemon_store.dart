@@ -21,15 +21,12 @@ abstract class _PokemonStoreBase with Store {
   String searchTerm = '';
 
   @computed
-  List<Pokemon> get filteredPokemons {
-    if (searchTerm.isEmpty) {
-      return pokemons;
-    }
-    return pokemons
-        .where((pokemon) =>
-            pokemon.name.toLowerCase().contains(searchTerm.toLowerCase()))
-        .toList();
-  }
+  List<Pokemon> get filteredPokemons => searchTerm.isEmpty
+      ? pokemons
+      : pokemons
+          .where((pokemon) =>
+              pokemon.name.toLowerCase().contains(searchTerm.toLowerCase()))
+          .toList();
 
   @observable
   PokemonDetail? currentPokemonDetail;
@@ -46,7 +43,6 @@ abstract class _PokemonStoreBase with Store {
     errorMessage = '';
     isLoading = true;
     try {
-      // Verifica se tem pokemons carregados
       if (pokemons.isEmpty) {
         pokemons.addAll(await fetchPokemonsUseCase.execute());
       }

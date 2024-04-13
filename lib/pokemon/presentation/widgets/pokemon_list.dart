@@ -36,16 +36,17 @@ class _PokemonListState extends State<PokemonList> {
           itemBuilder: (_, index) {
             final pokemon = widget.store.filteredPokemons[index];
             return PokemonCard(
-              name: pokemon.name,
+              pokemon: pokemon,
               onTap: () async {
                 await widget.store.loadPokemonDetail(pokemon.name);
                 if (widget.store.currentPokemonDetail != null) {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PokemonDetailPage(
-                              pokemonDetail:
-                                  widget.store.currentPokemonDetail!)));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PokemonDetailPage(
+                          pokemonDetail: widget.store.currentPokemonDetail!),
+                    ),
+                  );
                 }
               },
             );
