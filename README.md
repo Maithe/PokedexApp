@@ -30,8 +30,9 @@ To run all tests, use the following command:
 
 #### ⭐ Images:
 
-<img src="https://github.com/Maithe/PokedexApp/assets/30060627/bf002f5a-bee7-4d16-a278-58b3ba9b24dd" width="200" height="300">
+<img src="https://github.com/Maithe/PokedexApp/assets/30060627/83e1d6c7-6f00-48d1-8442-8771a7b1d94e" width="200" height="400">
 
-<img src="https://github.com/Maithe/PokedexApp/assets/30060627/03241ee8-7f42-4c07-b391-5326031eb2a6" width="200" height="300">
+<img src="https://github.com/Maithe/PokedexApp/assets/30060627/1ffe63b1-89d6-4c16-8635-8d22e262e6b1" width="200" height="400">
 
-<img src="https://github.com/Maithe/PokedexApp/assets/30060627/e6f7dc9f-afa9-4128-a217-10c88afe5b25" width="200" height="300">
+<img src="https://github.com/Maithe/PokedexApp/assets/30060627/46abfdda-a9ad-4850-a95d-5010a4f9e0e8" width="200" height="400">
+
