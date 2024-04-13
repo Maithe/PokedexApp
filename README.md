@@ -27,3 +27,11 @@ To run all tests, use the following command:
 - When you open the app, you will see a list of Pokémon.
 - You can tap any Pokémon to view its details.
 - Use the search bar to filter Pokémon by name.
+
+#### ⭐ Images:
+
+<img src="https://github.com/Maithe/PokedexApp/assets/30060627/bf002f5a-bee7-4d16-a278-58b3ba9b24dd" width="200" height="300">
+
+<img src="https://github.com/Maithe/PokedexApp/assets/30060627/03241ee8-7f42-4c07-b391-5326031eb2a6" width="200" height="300">
+
+<img src="https://github.com/Maithe/PokedexApp/assets/30060627/e6f7dc9f-afa9-4128-a217-10c88afe5b25" width="200" height="300">
