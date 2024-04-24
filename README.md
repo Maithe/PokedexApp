@@ -1,4 +1,4 @@
-## ✨ Pokédex App com Clean Architecture, MobX e get_it
+## ✨ PokedexApp with Clean Architecture, MobX and get_it
 
 This is a Flutter application that retrieves and displays Pokémon information from Pokémon API. It utilizes a clean architecture approach with a separation of concerns between domain data and the presentation layer, adhering to SOLID principles for maintainable and testable code.
 
